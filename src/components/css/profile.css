@@ -1,0 +1,16 @@
+.profile-top {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-top .col-1 {
+    width: 80%;
+}
+
+.access {
+    margin-top: 200px;
+    justify-content: space-around;
+    display: table;
+    margin: 0 auto;
+}

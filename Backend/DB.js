@@ -1,3 +1,3 @@
 module.exports={
-    DB: 'mongodb://localhost:27017/app'
+    DB: 'mongodb://localhost:27017/UserManagement'
 }
