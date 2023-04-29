@@ -151,10 +151,10 @@ export default  class AdminEditUser extends  Component{
                     </div>
                 </div>
                 <div class="content">
-                    <h2 className= 'tittle'>Fast Food</h2>
+                    <h2 className= 'tittle'>User Management System</h2>
                     <br/>
                     <div className="container " style={{marginTop:10}}>
-                        <h3 className="text-center" style={{borderBottom:'tomaato solid'}}>User Edit Profile</h3>
+                        <h3 className="text-center" style={{borderBottom:'tomaato solid'}}>Edit User</h3>
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <label>Name :</label>
