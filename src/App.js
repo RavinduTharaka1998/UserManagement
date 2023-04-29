@@ -9,6 +9,7 @@ import userProfile from './components/userProfile';
 import userEdit from './components/userEditProfile';
 import adminHome from './components/adminHome';
 import adminEditUser from './components/adminEditUser';
+import adminSearchUser from './components/adminSearchUser';
 
 class App extends Component{
 
@@ -23,6 +24,7 @@ class App extends Component{
                         <Route exact path='/userEdit/:id' component={userEdit}/>
                         <Route exact path='/adminHome' component={adminHome}/>
                         <Route exact path='/adminEditUser/:id' component={adminEditUser}/>
+                        <Route exact path='/adminSearchUser/:id' component={adminSearchUser}/>
                     </Switch>
                 </Router>
 

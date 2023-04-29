@@ -38,10 +38,10 @@ export default  class UserProfile extends  Component{
                 <div>
                      <div class="sidebar">
                         <a href= {"/userProfile/" +this.props.match.params.id}>Home</a>
-                        <a href={"/userProfile/" +this.props.match.params.id}>My Orders</a>
+                        <a href={"/userProfile/" +this.props.match.params.id}>News</a>
                         <a href="/">About Us</a>
                         <a href="/">Contact Us</a>
-                        <a href={"/cusprofile/"+this.props.match.params.id}>Profile</a>
+                        <a href={"/userProfile/"+this.props.match.params.id}>Profile</a>
                         <a href="/">SignOut</a>
 
                         <div className='inner-menu'>

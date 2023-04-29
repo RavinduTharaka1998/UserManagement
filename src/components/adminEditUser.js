@@ -187,7 +187,7 @@ export default  class AdminEditUser extends  Component{
                             </div>
 
                             <div className="form-group">
-                                <input type = "submit" value = "Update Profile" className="btn btn-dark"/>
+                                <input type = "submit" value = "Update User" className="btn btn-dark"/>
                             </div>
                         </form>
                     </div>

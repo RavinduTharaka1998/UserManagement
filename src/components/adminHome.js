@@ -1,6 +1,8 @@
 import  React, {Component} from 'react';
 import axios from 'axios'
 import UserTableRow from './allUsersTableRow';
+import jsPDF from "jspdf";
+import 'jspdf-autotable';
 
 import './css/profile.css';
 import Footer from './footer';
@@ -42,6 +44,32 @@ export default  class AdminHome extends  Component{
         });
     }
 
+    exportPDF = () => {
+        const unit = "pt";
+        const size = "A4"; // Use A1, A2, A3 or A4
+        const orientation = "portrait"; // portrait or landscape
+    
+        const marginLeft = 40;
+        const doc = new jsPDF(orientation, unit, size);
+    
+        doc.setFontSize(15);
+    
+        const title = "All Users Details";
+        const headers = [["Full Name","Address", "NIc","Phone", "eMail"]];
+    
+        const data = this.state.users.map(elt=> [elt.name, elt.address, elt.nic, elt.phone,elt.email]);
+    
+        let content = {
+          startY: 50,
+          head: headers,
+          body: data
+        };
+    
+        doc.text(title, marginLeft, 40);
+        doc.autoTable(content);
+        doc.save("UserReport.pdf")
+      }
+
     render() {
         return(
                 <div>
@@ -68,7 +96,7 @@ export default  class AdminHome extends  Component{
                                     <input type ="text" required value={this.state.search} onChange = {this.onChangeSearch} className="form-control"/>
                                 </div>
                                 <div className="form-group" style ={{float:'right'}}>
-                                    <a href ={"/adminsearchorder/"+this.state.search+"/"+this.props.match.params.id} style ={{float:'right',background:'#313332',padding:7,borderRadius:5,color:'white',textDecoration:'none'}}>Search</a>
+                                    <a href ={"/adminSearchUser/"+this.state.search} style ={{float:'right',background:'#313332',padding:7,borderRadius:5,color:'white',textDecoration:'none'}}>Search</a>
                                 </div>
                             </from>
                         </div>
@@ -93,7 +121,10 @@ export default  class AdminHome extends  Component{
                             </tbody>
                         </table>
 
-                        <br/><br/><br/>       
+                        <center>
+                            <button className='btn btn-warning' onClick={() => this.exportPDF()}>Export Users</button>
+                        </center>
+                        <br/>      
                         <hr/>     
                         <br/>
                         <hr/>
