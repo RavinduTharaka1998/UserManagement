@@ -37,21 +37,11 @@ export default  class SignIn extends  Component{
             password : this.state.password
         };
 
-        if ((this.state.email === "admin") && (this.state.password === "adminMatara")) {
-             const Station = "Matara";
-             this.props.history.push('/adminhome/'+Station);
+        if ((this.state.email === "admin") && (this.state.password === "admin")) {
+            
+             this.props.history.push('/adminHome');
 
-        }
-        else if ((this.state.email === "admin") && (this.state.password === "adminGalle")) {
-
-            const Station = "Galle";
-            this.props.history.push('/adminhome/'+Station);
-
-       }
-       else if ((this.state.email === "admin") && (this.state.password === "adminColombo")) {
-
-        const Station = "Colombo";
-        this.props.history.push('/adminhome/'+Station);
+        
 
        }else {
             axios.post('http://localhost:4000/user/login',object)
@@ -59,7 +49,7 @@ export default  class SignIn extends  Component{
                     if(res.data.message === "Successful Login"){
                         // alert(res.data.message)
                         // alert(Email)
-                        this.props.history.push('/index/'+Email);
+                        this.props.history.push('/userProfile/'+Email);
                     }
                     else{
                         // alert(res.data.message)
@@ -91,7 +81,7 @@ export default  class SignIn extends  Component{
                 <div class="content">
                     <h2 className= 'tittle'>User Management System</h2>
                     <br/>
-                    <div className="container" style={{marginTop:10}}>
+                    <div className="container" style={{marginTop:10,width:'50%'}}>
                         <h3 className="text-center">Sign In</h3>
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
@@ -124,7 +114,6 @@ export default  class SignIn extends  Component{
                     <hr/>
                     <Footer/>
                     <hr/>
-                    <br/>
 
                 </div>
             </div>

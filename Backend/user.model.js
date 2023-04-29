@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-Customers = new Schema({
+Users = new Schema({
     name: {
         type: String
     },
@@ -15,9 +15,6 @@ Customers = new Schema({
     phone: {
         type: String
     },
-    customer_type: {
-        type: String
-    },
     email: {
         type: String
     },
@@ -25,7 +22,7 @@ Customers = new Schema({
         type: String
     }
 }, {
-    collation: 'customers'
+    collation: 'users'
 });
 
-module.exports = mongoose.model('Customers',Customers);
+module.exports = mongoose.model('Users',Users);

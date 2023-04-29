@@ -1,16 +1,16 @@
 import  React, {Component} from 'react';
 import axios from 'axios'
-import TableRow from './cusDetailsTableRow';
+import TableRow from './userDetailsTableRow';
 
 import './css/profile.css';
 import Footer from './footer';
 
-export default  class CusProfile extends  Component{
+export default  class UserProfile extends  Component{
 
 
     constructor(props) {
         super(props);
-        this.state = {customers : []};
+        this.state = {users : []};
         this.state.Email = this.props.match.params.id;
 
         //const Email = this.props.match.params.id;
@@ -18,11 +18,11 @@ export default  class CusProfile extends  Component{
 
     componentDidMount() {
         // alert('email is ' +this.props.match.params.id);
-        axios.get('http://localhost:4000/trainFood/'+this.props.match.params.id)
+        axios.get('http://localhost:4000/user/'+this.props.match.params.id)
             .then(response => {
                 // alert('Pass una')
                 // alert('Data Tika :'+response.data)
-                this.setState({customers : response.data});
+                this.setState({users : response.data});
 
             })
             .catch(function (error){
@@ -30,64 +30,54 @@ export default  class CusProfile extends  Component{
             })
     }
     tabRow(){
-            return <TableRow obj={this.state.customers}/>
+            return <TableRow obj={this.state.users}/>
     }
 
     render() {
         return(
                 <div>
                      <div class="sidebar">
-                        <a href= {"/index/" +this.props.match.params.id}>Home</a>
-                        <a href={"/myorder/" +this.props.match.params.id}>My Orders</a>
-                        <a href="/about">About Us</a>
-                        <a href="/contact">Contact Us</a>
+                        <a href= {"/userProfile/" +this.props.match.params.id}>Home</a>
+                        <a href={"/userProfile/" +this.props.match.params.id}>My Orders</a>
+                        <a href="/">About Us</a>
+                        <a href="/">Contact Us</a>
                         <a href={"/cusprofile/"+this.props.match.params.id}>Profile</a>
                         <a href="/">SignOut</a>
 
                         <div className='inner-menu'>
-                            <a href="/signin">Terms & Condition</a>
-                            <a href="/about">Setting</a>
-                            <a href="/contact">More</a>
+                            <a href="/">Terms & Condition</a>
+                            <a href="/">Setting</a>
+                            <a href="/">More</a>
                         </div>
                     </div>
 
                     <div class="content">
-                        <h2 className= 'tittle'>Fast Food</h2>
+                        <h2 className= 'tittle'>User Management System</h2>
 
                         <br/>
                         <h3 align="center">My Profile</h3>
-                       
+                        <hr/>
                         <div className='profile-top'>
                             <div className='left-details'>
                                     <h3>Your Profile Details</h3>
-                                    <h5>You can edit or delete your profile details in here....</h5>
-                                    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrUvZm16nnAMpUqAvX3N2kODMuxJbXXCJVQg&usqp=CAU"/>
+                                    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1PltbrZER_wll6oxzmKendF9e2kchbe-rkTBwTVWRu9xpU2YwetnH_pFNSOrzuHuU_Zo&usqp=CAU"/>
                             </div>
                             <div className='right-details'>
                                 {this.tabRow()}
                             </div>
                         </div>
-
-
-                        <br/><br/><br/>       
+                        <hr/>
                         <hr/>                 
                         <div className='top-footer'>
                             <div className='col-img'>
-                                <img src = "https://limitlessspice.com/wp-content/uploads/2022/02/kottu-g734b601c4_1920.jpg" width="400"/>
-                                <h4>Koththu</h4>
-                                <h4>Rs 1000/=</h4>
+                                <img src = "https://thumbs.dreamstime.com/b/document-management-system-dms-businessman-hold-user-icon-software-archiving-searching-managing-corporate-files-223050643.jpg" width="400"/>
                             </div>
                             <div className='col-img'>
-                                <img src = "https://cdn.chinesedragoncafe.com/media/catalog/product/cache/1/image/988x988/9df78eab33525d08d6e5fb8d27136e95/r/i/rice-with-shrimp-_-chicken.jpg" width="475"/>
-                                <h4>Mix Rice</h4>
-                                <h4>Rs 900/=</h4>
+                                <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIJvE8ios-afexl26eDYclI79eTv7sph1hiaq_5e91Qebc2bXQwN4LjC6VnvWfg7xnxh4&usqp=CAU" width="475"/>
                             </div>
                             <div className='col-img'>
-                                <img src = "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/12/270770-garlic-noodles-ddmfs-4x3-0189.jpg" width="" height=""/>
-                                <h4>Noodles</h4>
-                                <h4>Rs 1200/=</h4>
+                                <img src = "https://www.loginradius.com/blog/static/3d1a7f9993b6334444b52ae84a06f852/d3746/user-mngmnt.jpg" width="" height=""/>
                             </div>
-                            
                         </div>
                         
                         <br/>
